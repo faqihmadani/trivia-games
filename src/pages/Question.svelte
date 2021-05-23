@@ -151,6 +151,7 @@
 				.replace(/&quot;/g, '"')
 				.replace(/&ndash;/g, "–")
 				.replace(/&eacute;/g, "é")
+				.replace(/&amp;/g, "&")
 		);
 	};
 
@@ -176,6 +177,12 @@
 		yourAnswer = "";
 	};
 
+	const handleScore = () => {
+		page.update(() => {
+			return "score";
+		});
+	};
+
 	const handleBackToHome = () => {
 		page.update(() => {
 			return "home";
@@ -183,7 +190,9 @@
 	};
 </script>
 
-<div class="bg-gradient-to-r from-blue-300 to-indigo-600 w-full min-h-screen">
+<div
+	class="bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300 w-full min-h-screen"
+>
 	{#if $questionLoading}
 		<div class="flex w-full h-screen justify-center items-center ">
 			<Loading />
@@ -204,7 +213,7 @@
 			</QuestionBox>
 			{#if check == undefined}
 				<div
-					class="grid grid-cols-1 sm:grid-cols-2 w-full max-w-md sm:max-w-xl md:max-w-2xl space-y-5 sm:space-y-0 sm:gap-5 mt-8"
+					class="mb-5 grid grid-cols-1 sm:grid-cols-2 w-full max-w-md sm:max-w-xl md:max-w-2xl space-y-5 sm:space-y-0 sm:gap-5 mt-8"
 				>
 					{#each answerObject as answer}
 						<OptionBox
@@ -221,7 +230,7 @@
 			{:else if check != undefined}
 				{#if check == true}
 					<div
-						class="grid grid-cols-1 sm:grid-cols-2 w-full max-w-md sm:max-w-xl md:max-w-2xl space-y-5 sm:space-y-0 sm:gap-5 mt-8"
+						class="mb-5 grid grid-cols-1 sm:grid-cols-2 w-full max-w-md sm:max-w-xl md:max-w-2xl space-y-5 sm:space-y-0 sm:gap-5 mt-8"
 					>
 						{#each answerObject as answer}
 							<CheckedOptionCorrect
@@ -234,7 +243,7 @@
 					</div>
 				{:else if check == false}
 					<div
-						class="grid grid-cols-1 sm:grid-cols-2 w-full max-w-md sm:max-w-xl md:max-w-2xl space-y-5 sm:space-y-0 sm:gap-5 mt-8"
+						class="mb-5 grid grid-cols-1 sm:grid-cols-2 w-full max-w-md sm:max-w-xl md:max-w-2xl space-y-5 sm:space-y-0 sm:gap-5 mt-8"
 					>
 						{#each answerObject as answer}
 							<CheckedOptionFalse
@@ -246,7 +255,11 @@
 						{/each}
 					</div>
 				{/if}
-				<Button on:click={handleNext}>Next</Button>
+				{#if num != 9}
+					<Button on:click={handleNext}>Next</Button>
+				{:else if num == 9}
+					<Button on:click={handleScore}>See Score</Button>
+				{/if}
 			{/if}
 		</div>
 	{:else if error}

@@ -10,8 +10,5 @@ export const questionLoading = writable(false);
 //Pertanyaan yang telah didapat
 export const questionData = writable([]);
 
-export const rightAnswer = writable("");
-export const wrongAnswer = writable("");
-
 //scrore
 export const score = writable(0);

@@ -37,7 +37,9 @@
 	};
 </script>
 
-<div class="bg-gradient-to-r from-blue-300 to-indigo-600 w-full h h-screen">
+<div
+	class="bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300 w-full h h-screen"
+>
 	<div class="h-screen w-full flex flex-col justify-center items-center">
 		<div class="max-w-lg bg-white shadow-md rounded-lg overflow-hidden mx-auto">
 			<div class="py-4 px-8 mt-3">
