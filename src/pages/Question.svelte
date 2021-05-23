@@ -198,7 +198,9 @@
 			<Loading />
 		</div>
 	{:else if question}
-		<div class="container mx-auto flex flex-col items-center">
+		<div
+			class="container mx-auto flex flex-col items-center transform scale-90 sm:scale-100"
+		>
 			<div class="w-full px-1 my-5 sm:my-3">
 				<h1 class="text-white font-medium text-lg">{question.category}</h1>
 				<h1 class="capitalize text-white">
