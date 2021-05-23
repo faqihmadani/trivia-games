@@ -62,7 +62,7 @@
 
 				<div class="py-4 cursor-pointer" on:click={handleStart}>
 					<p
-						class="block tracking-widest uppercase font-semibold text-center shadow bg-indigo-600 hover:bg-indigo-700 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded"
+						class="block tracking-widest uppercase font-semibold text-center shadow bg-indigo-600 hover:bg-indigo-700 focus:shadow-outline focus:outline-none text-white text-md py-3 px-10 rounded"
 					>
 						Start
 					</p>

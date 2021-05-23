@@ -1,5 +1,8 @@
 <script>
 	import { onMount } from "svelte";
+	import Button from "../components/Button.svelte";
+	import CheckedOptionCorrect from "../components/CheckedOptionCorrect.svelte";
+	import CheckedOptionFalse from "../components/CheckedOptionFalse.svelte";
 	import Loading from "../components/Loading.svelte";
 	import OptionBox from "../components/OptionBox.svelte";
 	import QuestionBox from "../components/QuestionBox.svelte";
@@ -9,6 +12,7 @@
 		category,
 		difficulty,
 		page,
+		score,
 	} from "../stores/HomeStore";
 
 	//Array categories
@@ -121,7 +125,7 @@
 	$: {
 		if (num > 0) {
 			question = $questionData[num];
-			let correctAnswer = question.correct_answer;
+			correctAnswer = question.correct_answer;
 			let joinAnswer = question.incorrect_answers;
 			joinAnswer.push(correctAnswer);
 			let randomAnswer = shuffle(joinAnswer);
@@ -141,6 +145,37 @@
 		});
 	}
 
+	const convertString = (string) => {
+		return convert(
+			string
+				.replace(/&quot;/g, '"')
+				.replace(/&ndash;/g, "–")
+				.replace(/&eacute;/g, "é")
+		);
+	};
+
+	let yourAnswer = "";
+	let check;
+
+	const handleAnswer = (answer) => {
+		yourAnswer = answer;
+	};
+
+	const handleCheck = () => {
+		if (yourAnswer == correctAnswer) {
+			score.update((currentScore) => currentScore + 10);
+			check = true;
+		} else {
+			check = false;
+		}
+	};
+
+	const handleNext = () => {
+		num++;
+		check = undefined;
+		yourAnswer = "";
+	};
+
 	const handleBackToHome = () => {
 		page.update(() => {
 			return "home";
@@ -157,27 +192,62 @@
 		<div class="container mx-auto flex flex-col items-center">
 			<div class="w-full px-1 my-5 sm:my-3">
 				<h1 class="text-white font-medium text-lg">{question.category}</h1>
-				<h1 class="capitalize text-white">{question.difficulty}</h1>
+				<h1 class="capitalize text-white">
+					Difficulty : {question.difficulty}
+				</h1>
 			</div>
 			<h1 class="text-white font-semibold text-xl mb-5">
 				Question Number {num + 1}
 			</h1>
 			<QuestionBox>
-				{convert(
-					question.question
-						.replace(/&quot;/g, '"')
-						.replace(/&ndash;/g, "–")
-						.replace(/&eacute;/g, "é")
-				)}
+				{convertString(question.question)}
 			</QuestionBox>
-			<div
-				class="grid grid-cols-1 sm:grid-cols-2 w-full max-w-md sm:max-w-xl md:max-w-2xl space-y-5 sm:space-y-0 sm:gap-5 mt-8"
-			>
-				{#each answerObject as answer}
-					<OptionBox>{answer.string}</OptionBox>
-				{/each}
-			</div>
-			<button on:click={() => num++}>Next</button>
+			{#if check == undefined}
+				<div
+					class="grid grid-cols-1 sm:grid-cols-2 w-full max-w-md sm:max-w-xl md:max-w-2xl space-y-5 sm:space-y-0 sm:gap-5 mt-8"
+				>
+					{#each answerObject as answer}
+						<OptionBox
+							{yourAnswer}
+							answer={answer.string}
+							on:click={() => handleAnswer(answer.string)}
+							>{convertString(answer.string)}</OptionBox
+						>
+					{/each}
+				</div>
+				{#if yourAnswer}
+					<Button on:click={handleCheck}>Check</Button>
+				{/if}
+			{:else if check != undefined}
+				{#if check == true}
+					<div
+						class="grid grid-cols-1 sm:grid-cols-2 w-full max-w-md sm:max-w-xl md:max-w-2xl space-y-5 sm:space-y-0 sm:gap-5 mt-8"
+					>
+						{#each answerObject as answer}
+							<CheckedOptionCorrect
+								{yourAnswer}
+								{correctAnswer}
+								answer={answer.string}
+								>{convertString(answer.string)}</CheckedOptionCorrect
+							>
+						{/each}
+					</div>
+				{:else if check == false}
+					<div
+						class="grid grid-cols-1 sm:grid-cols-2 w-full max-w-md sm:max-w-xl md:max-w-2xl space-y-5 sm:space-y-0 sm:gap-5 mt-8"
+					>
+						{#each answerObject as answer}
+							<CheckedOptionFalse
+								{yourAnswer}
+								{correctAnswer}
+								answer={answer.string}
+								>{convertString(answer.string)}</CheckedOptionFalse
+							>
+						{/each}
+					</div>
+				{/if}
+				<Button on:click={handleNext}>Next</Button>
+			{/if}
 		</div>
 	{:else if error}
 		<div class="flex flex-col w-full h-screen justify-center items-center ">
