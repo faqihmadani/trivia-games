@@ -6,7 +6,7 @@
 
 Sebuah app yang menyajikan kuis dengan berbagai macam kategori pertanyaan dan tingkat kesulitan. API berasal dari [opentdb.com](https://opentdb.com/api_config.php)
 
-[Link menuju demo page](trivia-games-lovat.vercel.app)
+[Link menuju demo page](https://trivia-games-lovat.vercel.app)
 
 ### Screenshot 
 ![Screenshot-Trivia-App-1](https://user-images.githubusercontent.com/76164968/177900820-a5c3bbe0-96ac-4212-ab94-8cf9da224fa0.PNG)
