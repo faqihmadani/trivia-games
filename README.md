@@ -4,3 +4,13 @@
 ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
 
 Sebuah app yang menyajikan kuis dengan berbagai macam kategori pertanyaan dan tingkat kesulitan. API berasal dari [opentdb.com](https://opentdb.com/api_config.php)
+
+[Link menuju demo page](trivia-games-lovat.vercel.app)
+
+### Screenshot 
+![Screenshot-Trivia-App-1](https://user-images.githubusercontent.com/76164968/177900820-a5c3bbe0-96ac-4212-ab94-8cf9da224fa0.PNG)
+![Screenshot-Trivia-App-2](https://user-images.githubusercontent.com/76164968/177900839-60c89eaa-6a3a-4bc8-ba0d-d456a9bf0785.PNG)
+![Screenshot-Trivia-App-3](https://user-images.githubusercontent.com/76164968/177900861-22f4d297-ac46-4c13-bb2a-407b5adec3ac.PNG)
+![Screenshot-Trivia-App-4](https://user-images.githubusercontent.com/76164968/177900876-12ba4d62-4cec-450d-956e-a6cdb4c23f8c.PNG)
+![Screenshot-Trivia-App-5](https://user-images.githubusercontent.com/76164968/177900893-df39228e-79b7-489e-b7e3-c3f74c372874.PNG)
+![Screenshot-Trivia-App-6](https://user-images.githubusercontent.com/76164968/177900906-cd49876e-1af9-43ad-b94f-d420cd8bede8.PNG)
