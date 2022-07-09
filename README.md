@@ -5,7 +5,7 @@
 ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
 
 Sebuah app yang menyajikan kuis dengan berbagai macam kategori pertanyaan dan tingkat kesulitan. API berasal dari [opentdb.com](https://opentdb.com/api_config.php).
-Dibuat menggunakan SvelteKit, Tailwind CSS, dan Vercel.
+Dibuat menggunakan Svelte JS, Tailwind CSS, dan Vercel.
 
 [Link menuju demo page.](https://trivia-games-lovat.vercel.app)
 
