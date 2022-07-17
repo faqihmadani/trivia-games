@@ -4,10 +4,14 @@
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
 
-Sebuah app yang menyajikan kuis dengan berbagai macam kategori pertanyaan dan tingkat kesulitan. API berasal dari [opentdb.com](https://opentdb.com/api_config.php).
-Dibuat menggunakan Svelte JS, Tailwind CSS, dan Vercel.
+An app that presents quizzes with various categories of questions and levels of difficulty. API comes from [opentdb.com](https://opentdb.com/api_config.php).
 
-[Link menuju demo page.](https://trivia-games-lovat.vercel.app)
+Tech Stack :
+- Svelte JS
+- Tailwind CSS
+- Vercel.
+
+[:link: Link to demo page.](https://trivia-games-lovat.vercel.app)
 
 ### Screenshot 
 ![Screenshot-Trivia-App-1](https://user-images.githubusercontent.com/76164968/177900820-a5c3bbe0-96ac-4212-ab94-8cf9da224fa0.PNG)
