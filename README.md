@@ -9,7 +9,7 @@ An app that presents quizzes with various categories of questions and levels of 
 Tech Stack :
 - Svelte JS
 - Tailwind CSS
-- Vercel.
+- Vercel
 
 [:link: Link to demo page.](https://trivia-games-lovat.vercel.app)
 
